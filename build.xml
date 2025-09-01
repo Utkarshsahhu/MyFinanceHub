@@ -1,0 +1,17 @@
+<project name="BankApp" default="run" basedir=".">
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${build.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}"/>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="BmsFiles.Login" fork="true" classpath="${build.dir}"/>
+    </target>
+</project>
